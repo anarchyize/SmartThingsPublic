@@ -22,7 +22,7 @@ metadata {
 		capability "Switch Level"
 		capability "Configuration"
 
-		fingerprint profileId: "0104", inClusters: "0000,0003", outClusters: "0000,0004,0003,0006,0008,0005", manufacturer: "Aurora", model: "Remote50AU", deviceJoinName: "Aurora Wireless Wall Remote"
+		fingerprint profileId: "0104", inClusters: "0000,1000,0003", outClusters: "0003,0004,0005,0006,0008,1000,0019", manufacturer: "Aurora", model: "Remote50AU", deviceJoinName: "Aurora Wireless Wall Remote"
 	}
 
 	tiles(scale: 2) {
@@ -120,9 +120,9 @@ def setLevel(value) {
 }
 
 def installed() {
-	sendEvent(name: "switch", value: "on", isStateChange: false, displayed: false)
-	sendEvent(name: "level", value: 100, isStateChange: false, displayed: false)
-	sendEvent(name: "button", value: "pushed", data: [buttonNumber: 1], isStateChange: false, displayed: false)
+	sendEvent(name: "switch", value: "on", displayed: false)
+	sendEvent(name: "level", value: 100, displayed: false)
+	sendEvent(name: "button", value: "pushed", data: [buttonNumber: 1], displayed: false)
 	sendEvent(name: "numberOfButtons", value: 1, displayed: false)
 }
 
